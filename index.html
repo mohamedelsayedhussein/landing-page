@@ -10,6 +10,7 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -79,14 +80,69 @@
                 </div>
             </div>
         </div>
+        <!-- start slider area -->
+        <div class="Modern-Slider">
+            <!-- Item -->
+            <div class="item" data-thumbnail="1.png">
+                <div class="img-fill">
+                    <img src="1.png" alt="">
+                    <div class="info">
+                        <div>
+                            <h2>Full Width Slider With Layers</h2>
+                            <h5>You can easily add image, html video layers over each slide and each layer accepts
+                                unique animation.</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- // Item -->
+            <!-- Item -->
+            <div class="item" data-thumbnail="2.png">
+                <div class="img-fill">
+                    <img src="2.png" alt="">
+                    <div class="info">
+                        <div>
+                            <h2>Full Width Slider With Layers</h2>
+                            <h5>You can easily add image, html video layers over each slide and each layer accepts
+                                unique animation.</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- // Item -->
+            <!-- Item -->
+            <div class="item" data-thumbnail="3.png">
+                <div class="img-fill">
+                    <img src="3.png" alt="">
+                    <div class="info">
+                        <div>
+                            <h2>Full Width Slider With Layers</h2>
+                            <h5>You can easily add image, html video layers over each slide and each layer accepts
+                                unique animation.</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- // Item -->
+        </div>
+        <!-- end slider area -->
+        <!-- start map -->
+        <div class="map">
+            <img src="bg.jpg" alt="">
+        </div>
+        <!-- end map -->
         <footer class="footer text-center">
             <div class="continer">
                 <div class="logo">
                     <a href="index.html"><img src="logo.png" alt="" class='img-fluid'></a>
                 </div>
                 <ul class="footer-content">
-                    <li><h4 class='text-uppercase mt-5'>MBG DEVELOPMENT</h4></li>
-                    <li><p class='text-capitalize mb-4 mt-3'>107 Thawra st., Helioplis, Cairo, Egypt</p></li>
+                    <li>
+                        <h4 class='text-uppercase mt-5'>MBG DEVELOPMENT</h4>
+                    </li>
+                    <li>
+                        <p class='text-capitalize mb-4 mt-3'>107 Thawra st., Helioplis, Cairo, Egypt</p>
+                    </li>
                     <li class='mb-3'><a href="#"><i class='fas fa-phone-alt mr-2'></i>16603</a></li>
                     <li class='mb-3'><a href="#"><i class='far fa-envelope mr-2'></i>info@mbgeg.com</a></li>
                     <li class='mt-5 face-book'><a href="#"><i class='fab fa-facebook-f'></i></a></li>
@@ -97,6 +153,50 @@
             </div>
         </footer>
     </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://kenwheeler.github.io/slick/slick/slick.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            // Slider Options
+            $(".Modern-Slider").slick({
+                // autoplay: true,
+                // autoplaySpeed: 2000,
+                // pauseOnHover: true,
+                // pauseOnDotsHover: true,
+                // cssEase: 'linear',
+                // draggable: false,
+                speed: 1000,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                dots: true,
+                fade: true,
+                prevArrow: '<button class="PrevArrow"> <span class="Thumbnail"></span></button>',
+                nextArrow: '<button class="NextArrow"> <span class="Thumbnail"></span></button>',
+
+                // Custom Dots With Thumbnails Tool Tip
+                customPaging: function (slider, i) {
+                    var thumbnail = $(slider.$slides[i]).data('thumbnail');
+                    return '<a href="javascript:void(0)"><img src="' + thumbnail + '"></a>';
+                },
+            });
+
+            // Arrows Thumbnails Trick
+            var PrevThumbinalFirst = $(".Modern-Slider .item:last-child").children(".img-fill").children("img").attr("src");
+            $(".Modern-Slider .PrevArrow .Thumbnail").css({ "background-image": "url(" + PrevThumbinalFirst + ")" })
+            var NextThumbinalFirst = $(".Modern-Slider .item:first-child").next().children(".img-fill").children("img").attr("src");
+            $(".Modern-Slider .NextArrow .Thumbnail").css({ "background-image": "url(" + NextThumbinalFirst + ")" })
+            $(".Modern-Slider").on('afterChange', function (event, slick, currentSlide) {
+                var PrevThumbinal = $(".Modern-Slider .item.slick-active").prev(".item").children(".img-fill").children("img").attr("src");
+                $(".Modern-Slider .PrevArrow .Thumbnail").css({ "background-image": "url(" + PrevThumbinal + ")" })
+                var NextThumbinal = $(".Modern-Slider .item.slick-active").next(".item").children(".img-fill").children("img").attr("src");
+                $(".Modern-Slider .NextArrow .Thumbnail").css({ "background-image": "url(" + NextThumbinal + ")" })
+            });
+
+        })
+    </script>
 </body>
 
 </html>
