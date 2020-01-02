@@ -15,6 +15,9 @@
 </head>
 
 <body>
+    <div class="contact-envelope">
+        <i class="far fa-envelope"></i>
+    </div>
     <main>
         <header class='header'>
             <div class="container">
@@ -81,7 +84,7 @@
             </div>
         </div>
         <!-- start slider area -->
-        <div class="Modern-Slider">
+        <div class="Modern-Slider" dir='ltr'>
             <!-- Item -->
             <div class="item" data-thumbnail="1.png">
                 <div class="img-fill">
@@ -127,18 +130,51 @@
         </div>
         <!-- end slider area -->
         <!-- start map -->
-        <div class="map">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <img src="bg.jpg" alt="" class='img-fluid'>
+        <div class="map p-5">
+            <div class="row align-items-stretch">
+                <div class="col-12">
+                    <div class="content-text text-white py-3 text-right">
+                        <h2 class='text-capitalize mb-4 border p-4 text-center map-title'>
+                            الحي السكني السابع R7 .. نبذة صغيرة
+                        </h2>
+                        <h3 class='mt-5'>مساحة كبيرة وموقع متميز</h3>
+                        <p>
+                            في قلب العاصمة الجديدة وعلى مساحة 1500 فدان، يقع الحي السكني R7 أحد أرقى أحياء العاصمة
+                            الجديدة وأكثر مناطق العاصمة الجديدة السكنية تميزًا، حيث يضم أفضل كمبوندات مثل مشروع ميدتاون
+                            سكاى , بالإضافة للمنشآت الخدمية والتجارية، وتم تقسيم الحي إلى 33 قطعة أرض.
+                        </p>
+                        <p>
+                            يجاور الحي السكني السابع العديد من المعالم الهامة بالعاصمة الإدارية كالحي الحكومي، ومجمع
+                            الوزارات، والقصر الرئاسي، وحي الدبلوماسيين.
+                        </p>                        
+                    </div>
+                </div>
+                <div class="col-md-6 text-white p-3 text-right mt-3">
+                    <h3>
+                        أنت في قلب العاصمة الإدارية
+                    </h3>
+                    <p>
+                        كذلك يمتاز بقربه من المدينة الطبية، ومحطة القطار، ومركز المؤتمرات، ومسجد الفتاح العليم،
+                        وكاتدرائية ميلاد المسيح، ودار الأوبرا، ومدينة الفن والثقافة ويبعد دقائق عن النهر الأخضر الذي
+                        سيكون أكبر حديقة مركزية على مستوى العالم.
+                    </p>
+                    <h3>يطل على طرق متميزة</h3>
+                    <p>
+                        لن يكون عليك قطع مسافات طويلة بالسيارة فالحي يبعد دقائق عن الطريق الدائري الإقليمي، الذي يعد
+                        من أهم الطرق الرئيسية داخل العاصمة الإدارية، ويربط بين طريق القاهرة – السويس من جهة، وطريق
+                        القاهرة – العين السخنة من الجهة الأخرى.
+                    </p>
+                    <h3>خدمات ورفاهيات لراحتك</h3>
+                    <p class="desc text-capitalize">
+                        لهذه المميزات وأكثر حرصت كبرى شركات التطوير العقاري على أن تحجز لمشروعاتها موطأ قدم بالحي،
+                        وزادت أهمية الحي بعد البعد في إنشاء كبرى المؤسسات التعليمية الراقية هناك كعدة مدارس دولية
+                        ذات مستوى تعليمي متميز وأيضًا فرع جديد للجامعة البريطانية بالإضافة لأول جامعة سويدية بالشرق
+                        الأوسط، ليس هذا فحسب فالحي يزخر بالمناطق الخدمية والترفيهية كما يضم الحي مركزًا تجاريًا
+                        بمعايير عالمية من تنفيذ مجموعة الفطيم ذائعة الصيت.
+                    </p>
                 </div>
                 <div class="col-md-6">
-                    <div class="content-text text-white p-3">
-                        <h2 class='text-capitalize'>title is here</h2>
-                        <p class="desc text-capitalize w-75">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus labore sapiente eaque nam ut eos!
-                        </p>
-                    </div>
+                    <img src="map.jpg" alt="" class='img-fluid'>
                 </div>
             </div>
         </div>
@@ -171,7 +207,18 @@
 
     <script>
         $(document).ready(function () {
-
+            $(window).scroll(function() {
+                if($(this).scrollTop() > 500) {
+                    $('.contact-envelope').addClass('show')
+                }else {
+                    $('.contact-envelope').removeClass('show')
+                }
+            })
+            $('.contact-envelope').click(function() {
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 500);
+            })
             // Slider Options
             $(".Modern-Slider").slick({
                 // autoplay: true,
